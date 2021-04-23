@@ -2,7 +2,7 @@
 ANPR KNearest creates jpeg img's from TTF font, trains and recognizes licence plate after cleaning and separating chars
 
 <p align="center">   
-  <img src="demo/demo.jpg">
+  <img src="/demo/demo.jpg">
 </p>
 
 
