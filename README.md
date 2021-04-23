@@ -30,4 +30,8 @@ recognize.py
   <img src="/demo/demo.jpg">
 </p>
 
+<p align="center">   
+  <img src="/demo/ocr.jpg">
+</p>
+
 Need asistance to finish "training - font in subfolders.py"
