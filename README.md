@@ -8,12 +8,14 @@ create font - single folder.py
 
 
 create font - subfolderes.py
-(Creates jpeg's from TTF font in subfolders named  0-9 and A-Z with font name on every img as font/0/0-arial.jpg)
+>Creates jpeg's from TTF font in subfolders named  0-9 and A-Z with font name on every img as font/0/0-arial.jpg
 
 
 ### JPEG CHAR TRAINING
-training - single font (works)
-training - font in subfolders (not finished, have issues, work in progress)
+training - single font
+>works fine
+training - font in subfolders
+>not finished, have issuesa nd need some help to finish this part
 
 
 ### RECOGNIZE
