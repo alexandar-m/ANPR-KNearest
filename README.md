@@ -13,7 +13,7 @@ create font - subfolders.py
 
 ### EXTRACTED JPG CHAR TRAINING
 >training single font done and works
-*training font in subfolders is not finished, have issues and need some help to finish this part
+* training font in subfolders is not finished, have issues and need some help to finish this part
 
 
 ### LICENCE PLATE RECOGNIZE
