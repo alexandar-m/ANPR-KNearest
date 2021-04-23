@@ -1,10 +1,6 @@
 # ANPR Automatic number-plate recognition with KNearest 
 ANPR KNearest creates jpeg img's from TTF font, trains and recognizes licence plate after cleaning and separating chars
 
-<p align="center">   
-  <img src="/demo/demo.jpg">
-</p>
-
 
 ### EXTRACT TTF FONT CHAR TO JPG
 create font - single folder.py
@@ -19,6 +15,9 @@ create font - subfolders.py
 >training single font done and works
 * training font in subfolders is not finished, have issues and need some help to finish this part
 
+<p align="center">   
+  <img src="/demo/chars.jpg">
+</p>
 
 ### LICENCE PLATE RECOGNIZE
 recognize.py
@@ -26,5 +25,13 @@ recognize.py
 * cleans img (results in temp folder)
 * extracts chars (results in plate-contours folder)
 * KNearest return values of nearest dists and shows result
+
+<p align="center">   
+  <img src="/demo/demo.jpg">
+</p>
+
+<p align="center">   
+  <img src="/demo/ocr.jpg">
+</p>
 
 Need asistance to finish "training - font in subfolders.py"
