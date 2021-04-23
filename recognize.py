@@ -132,7 +132,7 @@ def highlight_characters(img, chars):
 # ============================================================================    
 
 print("start")
-img = cv2.imread("plates/20201009000913.jpg")
+img = cv2.imread("plates/bih-temp.png")
 img = cv2.resize(img,(500,100), interpolation=cv2.INTER_LINEAR)
 
 img = clean_image(img)
