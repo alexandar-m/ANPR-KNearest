@@ -11,10 +11,8 @@ create font - subfolderes.py
 Creates jpeg's from TTF font in subfolders, one char one folder
 
 2. JPEG CHAR TRAINING
-training - single font
-works
-training - font in subfolders
-(still have issues)
+training - single font (works)
+training - font in subfolders (not finished, have issues, work in progress)
 
 3. RECOGNIZE
 recognize.py
@@ -22,3 +20,5 @@ recognize.py
 - cleans img (results in temp folder)
 - extracts chars (results in plate-contours folder)
 - KNearest return values of nearest dists and shows result
+
+Need asistance to finish "training - font in subfolders.py"
