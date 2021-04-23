@@ -1,6 +1,10 @@
 # ANPR Automatic number-plate recognition with KNearest 
 ANPR KNearest creates jpeg img's from TTF font, trains and recognizes licence plate after cleaning and separating chars
 
+<p align="center">   
+  <img src="demo/demo.jpg">
+</p>
+
 
 ### EXTRACT TTF FONT CHAR TO JPG
 create font - single folder.py
