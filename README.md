@@ -4,7 +4,7 @@ ANPR KNearest create img's from TTF font, train and recognize licence plate
 
 ### TTF TO JPEG
 create font - single folder.py
-(Creates jpeg's from TTF font chars 0-9 and A-Z in single folder as font-eu/0.jpg)
+>(Creates jpeg's from TTF font chars 0-9 and A-Z in single folder as font-eu/0.jpg)
 
 
 create font - subfolderes.py
