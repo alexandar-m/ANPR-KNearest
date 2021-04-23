@@ -1,24 +1,21 @@
 # ANPR-KNearest
-ANPR KNearest create img's from TTF font, train and recognize licence plate
+##ANPR KNearest create img's from TTF font, train and recognize licence plate
 
 This is my first Github Python project.
 
-1. TTF TO JPEG
-create font - single folder.py
-Creates jpeg's from TTF font in single folder
+##TTF TO JPEG
+create font - single folder.py (Creates jpeg's from TTF font chars 0-9 and A-Z in single folder as font-eu/0.jpg)
+create font - subfolderes.py (Creates jpeg's from TTF font in subfolders named  0-9 and A-Z with font name on every img as font/0/0-arial.jpg)
 
-create font - subfolderes.py
-Creates jpeg's from TTF font in subfolders, one char one folder
-
-2. JPEG CHAR TRAINING
+##JPEG CHAR TRAINING
 training - single font (works)
 training - font in subfolders (not finished, have issues, work in progress)
 
-3. RECOGNIZE
+##RECOGNIZE
 recognize.py
-- reads JPEG img
-- cleans img (results in temp folder)
-- extracts chars (results in plate-contours folder)
-- KNearest return values of nearest dists and shows result
+* reads JPEG img
+* cleans img (results in temp folder)
+* extracts chars (results in plate-contours folder)
+* KNearest return values of nearest dists and shows result
 
 Need asistance to finish "training - font in subfolders.py"
