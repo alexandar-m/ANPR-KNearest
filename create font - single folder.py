@@ -27,7 +27,7 @@ while i < len(CHARS):
     draw.text(pos, CHARS[i], "black", font=font)
 
     # Save png file
-    image.save("font-eu/"+CHARS[i]+".jpg")
+    image.save("dataset-single/"+CHARS[i]+".jpg")
     i += 1
 
-print("\nAll chars created in font-eu folder!")
+print("\nAll chars created in dataset-single folder!")

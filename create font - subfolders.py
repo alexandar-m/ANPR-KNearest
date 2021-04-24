@@ -38,7 +38,7 @@ while i < len(alphabet_list):
     #p = pathlib.Path(alphabet_list[i])
     #p.mkdir(parents=True, exist_ok=True)
 
-    folder = str("font/"+alphabet_list[i]+"/")
+    folder = str("dataset/"+alphabet_list[i]+"/")
     print (folder)
     #char = ("font/"+str(alphabet_list[i]))
     Path(str(folder)).mkdir( parents=True, exist_ok=True)
@@ -60,7 +60,7 @@ while n < len(number_list):
     draw.text(pos, number_list[n], "black", font=font)
 
     # Save png file
-    folder = str("font/"+number_list[n]+"/")
+    folder = str("dataset/"+number_list[n]+"/")
     Path(str(folder)).mkdir( parents=True, exist_ok=True)
     image.save(str(folder)+number_list[n]+"-"+fontname+".jpg")
     n += 1
