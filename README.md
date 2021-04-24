@@ -33,5 +33,3 @@ recognize.py
 <p align="center">   
   <img src="/demo/ocr.jpg">
 </p>
-
-Need asistance to finish "training - font in subfolders.py"
