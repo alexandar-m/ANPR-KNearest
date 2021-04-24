@@ -1,4 +1,4 @@
-# ANPR Automatic number-plate recognition with KNearest 
+# ANPR Automatic number-plate recognition with Python and KNearest 
 ANPR KNearest creates jpeg img's from TTF font, trains and recognizes licence plate after cleaning and separating chars
 
 
