@@ -107,7 +107,7 @@ def extract_characters(img):
         #white[0:h, 0:w] = char_image
         white[yoff:yoff+h, xoff:xoff+w] = char_image
         cv2.rectangle(white, pt1=(0,0), pt2=(whitew,whiteh), color=(255,255,255), thickness=5)
-        #cv2.imshow("white",white)
+
         #char_image = cv2.resize(char_image,(50,80),interpolation=cv2.INTER_LINEAR)
         #cv2.imshow("char_image"'+str(charNo)+',char_image)
         cv2.imwrite(("plate-contours/"+str(charNo)+".jpg"),white)
@@ -132,8 +132,8 @@ def highlight_characters(img, chars):
 # ============================================================================    
 
 print("start")
-img = cv2.imread("plates/bih-temp.png")
-img = cv2.resize(img,(500,100), interpolation=cv2.INTER_LINEAR)
+img = cv2.imread("plates/srb.jpg")
+img = cv2.resize(img,(520,110), interpolation=cv2.INTER_LINEAR)
 
 img = clean_image(img)
 clean_img, chars = extract_characters(img)
@@ -145,12 +145,18 @@ samples = np.loadtxt('char_samples.data',np.float32)
 responses = np.loadtxt('char_responses.data',np.float32)
 responses = responses.reshape((responses.size,1))
 
+#model = cv2.KNearest()
+#model.train(samples,responses)
+
 model = cv2.ml.KNearest_create()
 model.train(samples, cv2.ml.ROW_SAMPLE, responses)
 
 plate_chars = ""
+
 for bbox, char_img in chars:
-    #small_img = cv2.resize(char_img,(50,80))
+
+    small_img = cv2.resize(char_img,(50,80))
+    #bbox = cv2.resize(bbox,(50,80))
     small_img = char_img.reshape((1,4000))
     small_img = np.float32(small_img)
     retval, results, neigh_resp, dists = model.findNearest(small_img, k = 1)
