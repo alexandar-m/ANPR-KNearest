@@ -1,8 +1,8 @@
-# -*- coding: utf-8 -*-
 from PIL import Image, ImageDraw, ImageFont
-import string
-
 from pathlib import Path
+import datetime
+
+start = datetime.datetime.now()
 
 # Settings
 W, H = (50, 80)
@@ -33,5 +33,9 @@ while i < len(CHARS):
     Path(str(folder)).mkdir( parents=True, exist_ok=True)
     image.save(str(folder)+CHARS[i]+"-"+fontname+".jpg")
     i += 1
+
+end = datetime.datetime.now()
+total= end-start
+print("\nSpeed: "+(str(total)))
 
 print("\nAll chars created in dataset folder!")

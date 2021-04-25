@@ -1,12 +1,14 @@
-# -*- coding: utf-8 -*-
 from PIL import Image, ImageDraw, ImageFont
 import string
+import datetime
+
+start = datetime.datetime.now()
 
 # Settings
 W, H = (50, 80)
 
 # Font
-font = ImageFont.truetype("fonts/d-din-condensed-bold.ttf", 90, encoding='utf-8')
+font = ImageFont.truetype("fonts/FE-FONT.ttf", 70, encoding='utf-8')
 
 # Chars
 CHARS = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
@@ -28,5 +30,9 @@ while i < len(CHARS):
     # Save jpg file
     image.save("dataset-single/"+CHARS[i]+".jpg")
     i += 1
+
+end = datetime.datetime.now()
+total= end-start
+print("\nSpeed: "+(str(total)))
 
 print("\nAll chars created in dataset-single folder!")

@@ -1,6 +1,9 @@
 import cv2
 import imutils
 import numpy as np
+import datetime
+
+start = datetime.datetime.now()
 
 # ============================================================================
 
@@ -50,6 +53,7 @@ def clean_image(img):
 
     kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (2, 2))
     mask = cv2.erode(mask, kernel, iterations = 1)
+    mask = cv2.dilate(mask,kernel,iterations = 1)
     cv2.imwrite('temp/6-licence_plate_mask2.png', mask)
     print("clean_image")
 
@@ -77,7 +81,7 @@ def extract_characters(img):
         if h>50 and w<100:
         #if ar<1:
         #if (area > 5000) and (area < 50000):
-            x,y,w,h = x, y, w, h
+            #x,y,w,h = x-1, y+1, w+2, h+2
             bounding_boxes.append((center, (x,y,w,h)))
             cv2.rectangle(char_mask,(x,y),(x+w,y+h),255,-1)
 
@@ -100,15 +104,17 @@ def extract_characters(img):
         yoff = round((whiteh-h)/2)
         xoff = round((whitew-w)/2)
         char_image = clean[y:y+h,x:x+w]
+        cv2.imshow("clean",clean)
         #cv2.imshow("char_image",char_image)
         white = np.zeros((whiteh,whitew), dtype=np.uint8)
         white = 255*np.ones_like(white)
+        #cv2.imshow("white",white)
         #white = char_image[y:y+h,x:x+w]
         #white[0:h, 0:w] = char_image
         white[yoff:yoff+h, xoff:xoff+w] = char_image
         cv2.rectangle(white, pt1=(0,0), pt2=(whitew,whiteh), color=(255,255,255), thickness=5)
-
-        #char_image = cv2.resize(char_image,(50,80),interpolation=cv2.INTER_LINEAR)
+        #cv2.imshow("white",white)
+        char_image = cv2.resize(char_image,(50,80),interpolation=cv2.INTER_LINEAR)
         #cv2.imshow("char_image"'+str(charNo)+',char_image)
         cv2.imwrite(("plate-contours/"+str(charNo)+".jpg"),white)
         characters.append((bbox, white))
@@ -134,6 +140,7 @@ def highlight_characters(img, chars):
 print("start")
 img = cv2.imread("plates/bih.png")
 img = cv2.resize(img,(520,110), interpolation=cv2.INTER_LINEAR)
+cv2.imshow("img",img)
 
 img = clean_image(img)
 clean_img, chars = extract_characters(img)
@@ -145,13 +152,11 @@ samples = np.loadtxt('char_samples.data',np.float32)
 responses = np.loadtxt('char_responses.data',np.float32)
 responses = responses.reshape((responses.size,1))
 
-#model = cv2.KNearest()
-#model.train(samples,responses)
-
 model = cv2.ml.KNearest_create()
 model.train(samples, cv2.ml.ROW_SAMPLE, responses)
 
 plate_chars = ""
+
 
 for bbox, char_img in chars:
 
@@ -159,9 +164,14 @@ for bbox, char_img in chars:
     #bbox = cv2.resize(bbox,(50,80))
     small_img = char_img.reshape((1,4000))
     small_img = np.float32(small_img)
-    retval, results, neigh_resp, dists = model.findNearest(small_img, k = 1)
+
+    retval, results, neigh_resp, dists = model.findNearest(small_img, k=1)
     results = results.astype(int)
     #print (results)
     plate_chars += str(chr((results[0][0])))
 
+
+end = datetime.datetime.now()
+total= end-start
+print("\nSpeed: "+(str(total)))
 print("Licence plate: %s" % plate_chars)

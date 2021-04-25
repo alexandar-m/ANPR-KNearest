@@ -1,6 +1,9 @@
 import cv2
 import numpy as np
 import os
+import datetime
+
+start = datetime.datetime.now()
 
 print("Start creating KNearest char samples and responses from dataset folder!\n")
 
@@ -36,6 +39,10 @@ responses = responses.reshape((responses.size,1))
 
 np.savetxt('char_samples.data',samples)
 np.savetxt('char_responses.data',responses)
+
+end = datetime.datetime.now()
+total= end-start
+print("\nSpeed: "+(str(total)))
 
 print("\nCreated char_samples.data and char_responses.data!")
 
